@@ -1,0 +1,19 @@
+{
+    "name": "Template",
+    "fruit": [
+        {
+            "fruit_name": "Fruit Name",
+            "type": "Fruit Type",
+            "weight": 0,
+            "fruit_desc": "General description of the fruits powers.",
+            "abilitites": [
+                {
+                    "ability_name": "Ability name",
+                    "ability_desc": "Ability description"
+                }
+            ],
+            "available": true
+        }
+    ]
+
+}
