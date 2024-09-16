@@ -23,7 +23,7 @@ def load_file(path = "") -> dict:
     while counter < 3:
         try:
             if not path:
-                path = menu_generator([(file, "saves\\" + file) for file in os.listdir("Brews")])
+                path = menu_generator([(file, "saves\\" + file) for file in os.listdir("saves")])
             with open(path, "r") as file:
                 return json.load(file)
         except Exception as e:
