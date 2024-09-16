@@ -11,14 +11,6 @@ def clear():
     os.system("cls")
 
 def load_file(path = "") -> dict:
-    '''Loads a JSON file from either a given path or from the Brews subfolder.
-
-    Args:
-        path (str, optional): Full path to JSON file. Defaults to "".
-
-    Returns:
-        dict: Imported JSON file.
-    '''
     counter = 0
     while counter < 3:
         try:
@@ -32,15 +24,9 @@ def load_file(path = "") -> dict:
             continue
     sys.exit("Failed to load file after 3 attempts. Exiting program to prevent a infinite loop.")
 
-def save_file(brew: dict, path = "saves"):
-    '''Saves homebrew into JSON file
-
-    Args:
-        brew (dict): Homebrew data in dictionary.
-        path (str, optional): Output folder path. Defaults to "Brews".
-    '''
-    with open(path + "\\" + brew["name"] + ".json", "w") as file:
-            json.dump(brew, file, sort_keys=True, indent=4)
+def save_file(file: dict, path = "saves"):
+    with open(path + "\\" + file["name"] + ".json", "w") as file:
+            json.dump(file, file, sort_keys=False, indent=4)
 
 def menu_generator(options: list[tuple[str, object]], prompt = "") -> object:
         '''Generates a Menu from a list of tuples.
