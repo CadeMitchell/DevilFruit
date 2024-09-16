@@ -22,15 +22,15 @@ def main():
         file = {"name": name, "fruit": []}
     
     #Menu
+    choices = [("Exit and Save", "Exit"), ("Pick Fruit", "Pick"), ("View Fruit", "View"), ("Add Fruit", "Add"), ("Edit Fruit", "Edit"), ("Delete Fruit", "Delete")]
     while True:
-        choices = [("Exit and Save", "Exit"), ("Pick Fruit", "Pick"), ("View Fruit", "View"), ("Add Fruit", "Add"), ("Edit Fruit", "Edit"), ("Delete Fruit", "Delete")]
-        
+        choice = menu_generator(choices)
         if choice == "Exit":
             save_file(file)
             break
         elif choice == "Pick":
             if len(file["fruit"]) > 0:
-                zipped_raffle = [(fruit["name"], fruit["weight"]) for fruit in file if fruit["avaiable"]]
+                zipped_raffle = [(fruit["fruit_name"], fruit["weight"]) for fruit in file["fruit"] if fruit["avaiable"]]
                 fruit_raffle = [name[0] for name in zipped_raffle]
                 weight_raffle = [weight[1] for weight in zipped_raffle]
                 winner = random.choices(fruit_raffle, weight_raffle)
@@ -43,9 +43,11 @@ def main():
                     file["fruit"][index]["avaiable"] = False
         elif choice == "View":
             if len(file["fruit"]) > 0:
-                all_fruit = [(fruit["name"], fruit) for fruit in file]
+                all_fruit = [(fruit["fruit_name"], fruit) for fruit in file["fruit"]]
                 choice = menu_generator(all_fruit)
+                clear()
                 pp.pprint(choice)
+                input("Continue")
         elif choice == "Add":
             pass
         elif choice == "Edit":
