@@ -6,7 +6,8 @@ import os
 import sys
 
 def clear():
-    '''Clears the Console
+    '''
+    Clears the Console
     '''
     os.system("cls")
 
@@ -25,8 +26,8 @@ def load_file(path = "") -> dict:
     sys.exit("Failed to load file after 3 attempts. Exiting program to prevent a infinite loop.")
 
 def save_file(file: dict, path = "saves"):
-    with open(path + "\\" + file["name"] + ".json", "w") as file:
-            json.dump(file, file, sort_keys=False, indent=4)
+    with open(path + "\\" + file["name"] + ".json", "w") as json_file:
+            json.dump(file, json_file, sort_keys=False, indent=4)
 
 def menu_generator(options: list[tuple[str, object]], prompt = "") -> object:
         '''Generates a Menu from a list of tuples.

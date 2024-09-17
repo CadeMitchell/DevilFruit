@@ -8,7 +8,7 @@ def main():
     if choice == "Load":
         file = load_file()
     else:
-        name = input("Please input save name.")
+        name = input("Please input save name: ")
         file = {"name": name, "fruit": []}
         
         
@@ -103,7 +103,7 @@ def main():
                         fruit_obj.add_ability(ability_name, ability_desc)
                     elif edit_choice == "Remove":
                         abilities_options = [("Cancel", "Exit")]
-                        abilities_options.extend([(ability["name"], ability["name"]) for ability in fruit_obj.abilities])
+                        abilities_options.extend([(fruit_ability.name, fruit_ability) for fruit_ability in fruit_obj.abilities])
                         ability_remove_choice = menu_generator(abilities_options, "Select which fruit you would like to edit, or 'Cancel' to retrun to previous menu.")
                         if ability_remove_choice != "Exit":
                             fruit_obj.del_ability(ability_remove_choice)    

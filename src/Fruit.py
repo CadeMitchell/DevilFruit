@@ -2,7 +2,7 @@ class Fruit:
     def __init__(self, name, fruit_type, weight, desc, abilities = None, available = True) -> None:
         self.name = name
         self.fruit_type = fruit_type
-        self.weight = weight
+        self.weight = int(weight)
         self.desc = desc
         self.avaiable = available
         self.abilities = []
@@ -27,9 +27,9 @@ class Fruit:
         if self.abilities.count(name) < 1:
             self.abilities.append(Ability(name, desc))
         
-    def del_ability(self, name):
-        if self.abilities.count(name) > 0:
-            self.abilities.remove(name)
+    def del_ability(self, ability_obj):
+        if self.abilities.count(ability_obj) > 0:
+            self.abilities.remove(ability_obj)
             
     def toggle_avaiable(self):
         if self.avaiable:
@@ -38,7 +38,8 @@ class Fruit:
             self.avaiable = True
         
     def export(self):
-        return {"fruit_name": self.name, "type": self.fruit_type, "weight": self.weight, "fruit_desc": self.desc, "abilities": self.abilities, "available" : self.avaiable}
+        abilities = [ability.export() for ability in self.abilities]
+        return {"fruit_name": self.name, "type": self.fruit_type, "weight": self.weight, "fruit_desc": self.desc, "abilities": abilities, "available" : self.avaiable}
 
     def __str__(self) -> str:
         string = ""
@@ -46,7 +47,7 @@ class Fruit:
         string += f"Type: {self.fruit_type}\n"
         string += f"Desc: {self.desc}\n"
         string += f"Weight: {self.weight}\n"
-        string += f"Available to draw: {self.avaiable}\n"
+        string += f"Can be drawn: {self.avaiable}\n"
         string += f"\nAbilities:\n"
         for ability in self.abilities:
             string += f"\tAbility Name: {ability.name}\n"
