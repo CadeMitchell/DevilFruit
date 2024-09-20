@@ -53,3 +53,8 @@ def menu_generator(options: list[tuple[str, object]], prompt = "") -> object:
                     print("Invalid choice. Please try again.\n(Press ENTER to continue)")
             except ValueError:
                 input("Invalid input. Please enter a number.\n(Press ENTER to continue)")
+                
+def input_validator(validate_type = "str", prompt = ""):
+    while True:
+        clear()
+        user = input(prompt)
