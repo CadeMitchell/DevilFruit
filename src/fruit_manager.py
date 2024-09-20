@@ -1,5 +1,6 @@
 from .fruit import Fruit
 from .utilities import *
+
 class Fruit_Manager:
     def __init__(self, file: dict) -> None:
         self.file_name = file["file_name"]

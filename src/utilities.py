@@ -54,7 +54,17 @@ def menu_generator(options: list[tuple[str, object]], prompt = "") -> object:
             except ValueError:
                 input("Invalid input. Please enter a number.\n(Press ENTER to continue)")
                 
-def input_validator(validate_type = "str", prompt = ""):
+def input_validator(validate_type = "text", prompt = ""):
     while True:
         clear()
-        user = input(prompt)
+        try:
+            user = input(prompt)
+            if validate_type == "text":
+                if not user.isalnum():
+                    raise TypeError
+                return user
+            elif validate_type == "number":
+                return int(user)
+        except TypeError:
+            input(f"Error when accepting input.\nYou input: {user}\nExpected input: {validate_type}\nPress ENTER to continue.")
+                
