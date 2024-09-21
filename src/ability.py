@@ -9,3 +9,9 @@ class Ability:
     def display_ability(self):
         print(f"Abilty Name: {self.ability_name}")
         print(f"Description: {self.ability_desc}")
+        
+    def __str__(self) -> str:
+        string = ""
+        string += f"Ability Name: {self.ability_name}\n"
+        string += f"Ability Description: {self.ability_desc}"
+        return string

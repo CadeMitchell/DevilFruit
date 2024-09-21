@@ -1,6 +1,5 @@
 from src.fruit_manager import *
 from src.utilities import *
-import random
 
 def main():
     #File Select
@@ -14,29 +13,31 @@ def main():
         
         
     #Menu
+    manager = Fruit_Manager(file)
     choices = [("Exit and Save", "Exit"), ("Pick Fruit", "Pick"), ("View Fruit", "View"), ("Add Fruit", "Add"), ("Edit Fruit", "Edit"), ("Delete Fruit", "Delete")]
     while True:
         choice = menu_generator(choices)
         clear()
         
         if choice == "Exit":
+            file = manager.export()
             save_file(file)
             break
         
         elif choice == "Pick":
-            pass
+            manager.raffle_fruit()
                     
         elif choice == "View":
-            pass
+            manager.view_fruit()
                 
         elif choice == "Add":
-            pass
+            manager.add_fruit()
                 
         elif choice == "Edit":
-            pass    
+            manager.edit_fruit()    
         
         elif choice == "Delete":
-            pass
+            manager.remove_fruit()
             
 
 
