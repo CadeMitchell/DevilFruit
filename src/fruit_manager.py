@@ -34,8 +34,10 @@ class Fruit_Manager:
             
     def remove_fruit(self):
         while True:
+            default_options = [("Exit Remove Fruit Menu", "Exit")]
             options = [(fruit.fruit_name, fruit) for fruit in self.fruits]
-            choice = menu_generator([("Exit Remove Fruit Menu", "Exit")].extend(options), "Choose what Fruit you would like to remove.")
+            default_options.extend(options)
+            choice = menu_generator(default_options, "Choose what Fruit you would like to remove.")
             if choice == "Exit":
                 break
             self.fruits.remove(choice)
