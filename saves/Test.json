@@ -1,0 +1,31 @@
+{
+    "name": "Test",
+    "fruits": [
+        {
+            "fruit_name": "1",
+            "fruit_desc": "1",
+            "type": "1",
+            "weight": 1,
+            "available": true,
+            "abilities": [
+                {
+                    "ability_name": "1",
+                    "ability_desc": "1"
+                }
+            ]
+        },
+        {
+            "fruit_name": "2",
+            "fruit_desc": "2",
+            "type": "2",
+            "weight": 2,
+            "available": true,
+            "abilities": [
+                {
+                    "ability_name": "2",
+                    "ability_desc": "2"
+                }
+            ]
+        }
+    ]
+}

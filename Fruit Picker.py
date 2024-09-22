@@ -8,7 +8,7 @@ def main():
         file = load_file()
     else:
         name = input("Please input save name: ")
-        file = {"name": name, "fruit": []}
+        file = {"name": name, "fruits": []}
         save_file(file)
         
         

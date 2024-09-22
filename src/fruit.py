@@ -6,7 +6,7 @@ class Fruit:
         self.fruit_desc = file["fruit_desc"]
         self.weight = file["weight"]
         self.type = file["type"]
-        self.avaliable = file["available"]
+        self.available = file["available"]
         self.abilities = []
         if file["abilities"]:
             for ability in file["abilities"]:
@@ -17,7 +17,7 @@ class Fruit:
                   "fruit_desc": self.fruit_desc,
                   "type": self.type,
                   "weight": self.weight,
-                  "available": self.avaliable,
+                  "available": self.available,
                   "abilities": []}
         for ability in self.abilities:
             export["abilities"].append(ability.export())
@@ -35,11 +35,11 @@ class Fruit:
         
     def __str__(self) -> str:
         string = ""
-        string += f"Name: {self.name}\n"
-        string += f"Type: {self.fruit_type}\n"
-        string += f"Desc: {self.desc}\n"
+        string += f"Name: {self.fruit_name}\n"
+        string += f"Type: {self.type}\n"
+        string += f"Desc: {self.fruit_desc}\n"
         string += f"Weight: {self.weight}\n"
-        string += f"Can be drawn: {self.avaiable}\n"
+        string += f"Can be drawn: {self.available}\n"
         string += f"\nAbilities:\n"
         for ability in self.abilities:
             string += f"\tAbility Name: {ability.ability_name}\n"
