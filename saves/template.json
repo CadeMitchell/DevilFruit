@@ -1,5 +1,5 @@
 {
-    "fruit": [
+    "fruits": [
         {
             "abilities": [
                 {
@@ -14,5 +14,5 @@
             "weight": 10
         }
     ],
-    "name": "Template"
+    "file_name": "Template"
 }
