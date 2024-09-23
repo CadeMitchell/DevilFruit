@@ -29,6 +29,38 @@ def save_file(file: dict, path = "saves"):
     with open(path + "\\" + file["name"] + ".json", "w") as json_file:
             json.dump(file, json_file, sort_keys=False, indent=4)
 
+def file_utilities():
+    options = [("Exit File Managment", "Exit"), ("Combine Save Files", "Combine")]
+    while True:
+        choice = menu_generator(options)
+        if choice == "Exit":
+            break
+        elif choice == "Combine":
+            combine_files()
+            
+def combine_files(path = "saves"):
+    try:
+        file_one = menu_generator([(file, "saves\\" + file) for file in os.listdir("saves")], "Select First File to combine.")
+        if file_one == "Exit":
+            raise Exception("Canceled")
+        file_two = menu_generator([(file, "saves\\" + file) for file in os.listdir("saves")], "Select Second File to combine.")
+        if file_two == "Exit":
+            raise Exception("Canceled")
+        if file_one == file_two:
+            raise Exception("Same file detected. Cancelling Process.")
+        
+        file_one = load_file(file_one)
+        file_two = load_file(file_two)
+        
+        new_file = file_one["fruits"].extend(file_two["fruits"])
+        user = input_validator("default", "Please input the name of the new combined file. Re-using either file 1 or 2's name will replace the file permanently.\n")
+        new_file["name"] = user
+        
+        save_file(new_file)
+        
+    except Exception as e:
+        input(f"{e}\nPress ENTER to continue.")
+
 def menu_generator(options: list[tuple[str, object]], prompt = "") -> object:
         '''Generates a Menu from a list of tuples.
 
