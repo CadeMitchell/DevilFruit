@@ -40,10 +40,10 @@ def file_utilities():
             
 def combine_files(path = "saves"):
     try:
-        file_one = menu_generator([(file, "saves\\" + file) for file in os.listdir("saves")], "Select First File to combine.")
+        file_one = menu_generator([("Cancel Process", "Exit")] + [(file, "saves\\" + file) for file in os.listdir("saves")], "Select First File to combine.")
         if file_one == "Exit":
             raise Exception("Canceled")
-        file_two = menu_generator([(file, "saves\\" + file) for file in os.listdir("saves")], "Select Second File to combine.")
+        file_two = menu_generator([("Cancel Process", "Exit")] + [(file, "saves\\" + file) for file in os.listdir("saves")], "Select Second File to combine.")
         if file_two == "Exit":
             raise Exception("Canceled")
         if file_one == file_two:
@@ -51,10 +51,10 @@ def combine_files(path = "saves"):
         
         file_one = load_file(file_one)
         file_two = load_file(file_two)
-        
-        new_file = file_one["fruits"].extend(file_two["fruits"])
         user = input_validator("default", "Please input the name of the new combined file. Re-using either file 1 or 2's name will replace the file permanently.\n")
+        new_file = {}
         new_file["name"] = user
+        new_file["fruits"] = file_one["fruits"] + file_two["fruits"]
         
         save_file(new_file)
         

@@ -15,6 +15,8 @@ def main():
             break
         elif choice == "Manager":
             file_utilities()
+        elif choice == "Exit":
+            pass
         
 
     #Menu
