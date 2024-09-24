@@ -112,12 +112,17 @@ class Fruit_Manager:
                 break
 
     def view_fruit(self):
+        while True:
+            default_options = [("Exit Fruit Viewer", "Exit")]
             options = [(fruit.fruit_name, fruit) for fruit in self.fruits]
-            if options:
-                choice = menu_generator(options, "Choose what Fruit you would like to view.")
-                input(str(choice)+"\nPress ENTER to continue.\n")
-            else:
-                input("No fruit to view.\nPress ENTER to continue.")
+            default_options.extend(options)
+            
+            choice = menu_generator(options, "Choose what Fruit you would like to view.")
+            if choice == "Exit":
+                break
+            input(str(choice)+"\nPress ENTER to continue.\n")
+            
+            
 
     def export(self):
         file = {}
